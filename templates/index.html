@@ -4,13 +4,13 @@
     <title>Mon titre</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
   </head>
-  <body style="margin: 20px">
+  <body style="margin: 20px;background-color: grey">
 
     <div class="align-content-center">
         <h1 style="text-align: center">AwareNet <img src="{{ url_for('static', filename='img/logo.png') }}" alt="logo" width="50" height="50"></h1>
     </div>
 
-    <div class="tableau rounded align-self-center" style="background-color: darkgrey; padding-bottom: 20%">
+    <div class="tableau rounded align-self-center" style="background-color: darkgrey; margin-bottom: 20px; padding-bottom: 20%">
       <!-- tableau 4 colonnes (niveau critique, ipdest, ipsource, nb trames) utilisant bootstrap-->
         <table class="table table-striped table-bordered table-hover align-self-center" style="margin: 30px; width: 90%">
             <thead>
@@ -34,17 +34,18 @@
         </table>
     </div>
 
-    <div class="row">
+    <div class="row align-items-center" >
 
-        <!-- div qui prend 50% de largeur de la page a gauche -->
-        <div class="col-md-6 align-self-center" style="background-color: darkgrey;padding-bottom: 20%; padding-right: 20px; margin-top:30px">
-            <h1 style="text-align: center">Reseau actuel</h1>
+        <div class="col-md-5 rounded" style="background-color: lightgrey; padding-bottom: 15%;margin: 10px">
+            <h1 style="text-align: center">Réseau</h1>
+            <img src="{{ url_for('static', filename='img/reseau.png') }}" alt="reseau" width="80%" height="100%">
         </div>
 
-        <!-- div qui prend 50% de largeur de la page a droite -->
-        <div class="col-md-6 align-self-center" style="background-color: darkgrey;padding-bottom: 20%; margin-top:30px; padding-right: 20px">
-            <h1 style="text-align: center">Graph de requetes sur le temps</h1>
+        <div class="col-md-5 rounded" style="background-color: lightgrey; padding-bottom: 15%;margin: 10px">
+            <h1 style="text-align: center" >Requetes/temps</h1>
+            <img src="{{ url_for('static', filename='img/plot.png') }}" alt="plot" width="80%" height="100%">
         </div>
+
 
     </div>
     <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
