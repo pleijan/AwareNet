@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mon titre</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+  </head>
+  <body style="margin: 20px">
+
+    <div class="align-content-center">
+        <h1 style="text-align: center">AwareNet <img src="{{ url_for('static', filename='img/logo.png') }}" alt="logo" width="50" height="50"></h1>
+    </div>
+
+    <div class="tableau rounded align-self-center" style="background-color: darkgrey; padding-bottom: 20%">
+      <!-- tableau 4 colonnes (niveau critique, ipdest, ipsource, nb trames) utilisant bootstrap-->
+        <table class="table table-striped table-bordered table-hover align-self-center" style="margin: 30px; width: 90%">
+            <thead>
+            <tr>
+                <th>Niveau critique</th>
+                <th>IP destination</th>
+                <th>IP source</th>
+                <th>Nombre de trames</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for ligne in lignes %}
+            <tr>
+                <td>{{ ligne[0] }}</td>
+                <td>{{ ligne[1] }}</td>
+                <td>{{ ligne[2] }}</td>
+                <td>{{ ligne[3] }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="row">
+
+        <!-- div qui prend 50% de largeur de la page a gauche -->
+        <div class="col-md-6 align-self-center" style="background-color: darkgrey;padding-bottom: 20%; padding-right: 20px; margin-top:30px">
+            <h1 style="text-align: center">Reseau actuel</h1>
+        </div>
+
+        <!-- div qui prend 50% de largeur de la page a droite -->
+        <div class="col-md-6 align-self-center" style="background-color: darkgrey;padding-bottom: 20%; margin-top:30px; padding-right: 20px">
+            <h1 style="text-align: center">Graph de requetes sur le temps</h1>
+        </div>
+
+    </div>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+  </body>
+</html>
