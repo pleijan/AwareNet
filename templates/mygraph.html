@@ -88,8 +88,8 @@
                   
 
                   // parsing and collecting nodes and edges from the python
-                  nodes = new vis.DataSet([{"color": "#33FF6C", "id": "Routeur", "label": "Routeur", "shape": "dot"}, {"color": "#97c2fc", "id": "128.168.2.2", "label": "128.168.2.2\n00:00:00:00:00:00", "shape": "dot"}, {"color": "#97c2fc", "id": "128.168.2.3", "label": "128.168.2.3\n00:00:00:00:00:10", "shape": "dot"}]);
-                  edges = new vis.DataSet([{"from": "Routeur", "to": "128.168.2.2"}, {"from": "Routeur", "to": "128.168.2.3"}]);
+                  nodes = new vis.DataSet([{"color": "#33FF6C", "id": "Routeur", "label": "Routeur", "shape": "dot"}, {"color": "#97c2fc", "id": "192.168.1.1", "label": "pfSense.home.arpa\n192.168.1.1\n02:00:CA:D3:60:50", "shape": "dot"}, {"color": "#97c2fc", "id": "192.168.1.207", "label": "\n192.168.1.207\n02:00:CA:D3:60:52", "shape": "dot"}, {"color": "#97c2fc", "id": "192.168.1.208", "label": "\n192.168.1.208\n02:00:CA:D3:60:53", "shape": "dot"}, {"color": "#97c2fc", "id": "192.168.1.209", "label": "\n192.168.1.209\n02:00:CA:D3:60:51", "shape": "dot"}]);
+                  edges = new vis.DataSet([{"from": "Routeur", "to": "192.168.1.1"}, {"from": "Routeur", "to": "192.168.1.207"}, {"from": "Routeur", "to": "192.168.1.208"}, {"from": "Routeur", "to": "192.168.1.209"}]);
 
                   nodeColors = {};
                   allNodes = nodes.get({ returnType: "Object" });
