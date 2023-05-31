@@ -3,12 +3,107 @@
   <head>
     <title>Mon titre</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+      <meta http-equiv="refresh" content="15">
+       <style>
+    table {
+      border-collapse: collapse;
+    }
+    td, th {
+      border: 1px solid black;
+      padding: 8px;
+      cursor: pointer;
+    }
+
+    /* Styles pour la fenêtre modale */
+    #modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    #modal-content {
+      background-color: #fefefe;
+      margin: 10% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 600px;
+      text-align: center;
+    }
+  </style>
+  <script>
+    function afficherPopup() {
+      // Afficher la fenêtre modale
+      var modal = document.getElementById("modal");
+      modal.style.display = "block";
+
+      // Modifier le contenu de la fenêtre modale
+      var modalContent = document.getElementById("modal-content");
+      modalContent.innerHTML = " <h1> Total 54 trames suspectes ! </h1>" +
+          "<table style='overflow:auto' align=center>" +
+          "<tr> <td> 1 </td> <td> contenu de la trame </td> </tr>" +
+          "<tr> <td> 2 </td> <td> contenu de la trame </td> </tr>" +
+          "</table>";
+    }
+
+    function fermerPopup() {
+      // Fermer la fenêtre modale
+      var modal = document.getElementById("modal");
+      modal.style.display = "none";
+    }
+
+    window.onload = function() {
+      // Obtenir toutes les lignes du tableau
+      var lignes = document.getElementsByTagName("tr");
+
+      // Parcourir chaque ligne et ajouter un gestionnaire d'événement de clic
+      for (var i = 0; i < lignes.length; i++) {
+        lignes[i].onclick = afficherPopup;
+      }
+    };
+  </script>
   </head>
   <body style="margin: 20px;background-color: grey">
 
     <div class="align-content-center">
         <a href="/" style=" color: inherit;  text-decoration: inherit;"><h1 style="text-align: center">AwareNet <img src="{{ url_for('static', filename='img/logo.png') }}" alt="logo" width="50" height="50"></h1></a>
     </div>
+
+   <div class="tableau rounded align-self-center" style="background-color: darkgrey; margin-bottom: 20px; height: 800px; overflow: auto">
+
+        <table class="table table-striped table-bordered table-hover align-self-center " style="margin: 30px; width: 96%">
+            <thead>
+            <tr>
+                <th>Type d'attaque</th>
+                <th>Pourcentage de précision</th>
+                <th>IP destination</th>
+                <th>IP source</th>
+                <th>Nombre de trames</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>DDOS</td>
+                <td>75 %</td>
+                <td>192.168.2.3</td>
+                <td>192.168.2.4</td>
+                <td>58 trames</td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+     <div id="modal" onclick="fermerPopup()">
+        <div id="modal-content" onclick="fermerPopup()">
+          <span onclick="fermerPopup()">&times;</span>
+        </div>
+     </div>
   </body>
 
 </html>
