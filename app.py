@@ -10,14 +10,14 @@ app = Flask(__name__)
 def index():
 
 
-    CreateGraph.createGraph(1, "172.20.224.0")
+    CreateGraph.createGraph(1, "192.168.1.0/24")
     CreatePlot.createPlot()
     return render_template("index.html")
 
 @app.route('/reseaux/')
 def reseaux():
 
-    CreateGraph.createGraph(0, "172.20.224.0")
+    CreateGraph.createGraph(0, "192.168.1.0/24")
     return render_template('reseaux.html')
 
 @app.route('/tableau/')

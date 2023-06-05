@@ -13,7 +13,7 @@ def createGraph(type, IP):
 
     # Ajoute un nœud pour chaque ordinateur connecté
     for client in clients_list:
-        net.add_node(client["ip"], label=client["ip"] + "\n" + client["mac"])
+        net.add_node(client["ip"], label=client["name"]+"\n"+client["ip"] + "\n" + client["mac"])
 
     # Ajoute une connexion entre le routeur et chaque ordinateur connecté
     for client in clients_list:
