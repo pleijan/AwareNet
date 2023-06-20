@@ -26,9 +26,12 @@ def listener():
         print(data)
 
         if data:
-            # open a new file in current folder to write to the data
+            # open a new file in current fol    der to write to the data
             with open("data.txt", "a") as f:
-                f.write(data)
+                # decode and write the data to the file
+                f.write(data.decode("utf-8"))
+                f.write("\n")
+
             # close the file
 
 
