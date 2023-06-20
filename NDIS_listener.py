@@ -6,7 +6,7 @@ def listener():
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
     # Bind the socket to the port
-    server_address = ('localhost', 444)
+    server_address = ('192.168.1.206', 444)
     print('starting up on {} port {}'.format(*server_address))
     sock.bind(server_address)
 
@@ -18,9 +18,14 @@ def listener():
         print(data)
 
         if data:
-            sent = sock.sendto(data, address)
-            print('sent {} bytes back to {}'.format(
-                sent, address))
+            # open a new file in current folder to write to the data
+            file = open("data.txt", "w")
+            file.write(data.decode())
+            file.close()
+
+
+            
+
             
 
 def main():
