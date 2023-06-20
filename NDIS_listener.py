@@ -19,10 +19,10 @@ def listener():
 
         if data:
             # open a new file in current folder to write to the data
-            file = open("data.txt", "w")
-            file.write(data.decode())
-            file.close()
-
+            with open("data.txt", "wb") as f:
+                f.write(data)
+            # close the file
+            
 
             
 
